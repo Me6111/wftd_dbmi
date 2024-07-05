@@ -1,0 +1,67 @@
+The breakdown of a database structure from largest to smallest unit, along with their symbols:
+
+- Database (DB): The largest unit, representing the entire collection of data - Symbol: DB
+
+- Schema (S): Defines the structure of the database, like a blueprint - Symbol: S
+
+- Table (T): Holds related data points organized in rows and columns - Symbol: T
+
+- Column (Attr): A vertical section of a table containing a specific data category (e.g., name, age) - Symbol: Attr
+
+- Row (Record): A horizontal section of a table representing a single data entry for all columns - Symbol: Record
+
+- Cell (Value): The intersection of a row and column, containing a single data element (e.g., "John", "30") - Symbol: Value
+
+- Character (Char): The smallest unit, representing a single letter, number, or symbol within a cell - Symbol: Char
+
+
+
+
+
+
+
+
+Our components:
+
+class="schemas_fields_list"
+class="schema_field"
+class="schema_field"
+class="schema_field"
+
+features:
+- scroll list of schemas
+- search for schema
+- add schema
+- select schema
+
+
+After selecting a schema_field:
+class="tables_fields_list"
+class="table_field"
+class="table_field"
+class="table_field"
+
+features:
+- delete schema
+- scroll list of tables
+- search for table
+- add table
+- select table
+
+
+After selecting a table_field:
+
+features:
+- delete table
+- scroll table
+- remove full duplicated rows
+- search for a column
+- select a column
+
+After selecting a column:
+- delete column
+- search for a row
+- remove duplicated rows within column
+- search for a cell
+- edit cell
+

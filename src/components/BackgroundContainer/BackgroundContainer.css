@@ -1,0 +1,11 @@
+
+
+
+.illustration-container {
+    position: absolute;
+    width: 100%;
+    height: 100vh; /* 100% of the viewport height */
+    top: 0; /* Align to the top of the viewport */
+    left: 0;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  }
