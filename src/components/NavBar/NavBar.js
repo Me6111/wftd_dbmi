@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import './NavBar.css'; // Import the CSS file
 import logo from './logo.jpg'; // Adjust the path if necessary
 import MainMenuButton from '../MainMenuButton/MainMenuButton'; // Import the MainMenu component

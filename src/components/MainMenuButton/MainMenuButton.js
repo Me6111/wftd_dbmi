@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import './MainMenuButton.css'; // Import the CSS file
 import Menu_Icon from './menu_icon.jpg'; // Import the image
 
