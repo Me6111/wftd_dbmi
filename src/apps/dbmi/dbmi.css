@@ -1,37 +1,59 @@
 
 
+html {
+    background-color: black;
+}
 
 
 
 
+.AppContainer {
+    z-index: 0;
+    position: absolute; /* Use fixed positioning to cover the entire viewport */
+    top: 0;
+    left: 0;
+    height: 100%; /* 100% of the viewport height */
+    width: 100%; /* 100% of the viewport width */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .Locations-app-container {
     background-color: rgba(0, 128, 0, 0.2);
-    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
-    border-radius: 15px;
-    width: 80%;
-    height: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+
+    width: 90%;
+    height: 97%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Changed from center to flex-start to ensure the first child is at the top */
+
 }
 
 .Locations-app-container-title {
     background-color: rgba(0, 0, 0); 
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
 
     width: 100%;
     height: 15%;
 }
 
 
-
+@media screen and (max-width: 750px) {
+    .Locations-app-container-title {
+        height: 5%;
+    }
+}
+@media screen and (max-width: 750px) {
+    .Locations-app-container {
+        width: 99%;
+    }
+}
 
 
 .Locations-app-title {
@@ -60,14 +82,10 @@
 
 
 
-/* Media query for larger screens */
-@media screen and (min-width: 768px) {
-    .Locations-app-title {
-        letter-spacing: 15px; /*  original letter spacing for larger screens */
-        word-spacing: 10px; /*  original word spacing for larger screens */
-        font-size: 15px; /*  original font size for larger screens */
-    }
-}
+
+
+
+
 
 .Locations-app-container-content {
     width: 100%;
@@ -82,126 +100,6 @@
 
 
 }
-
-
-
-
-
-
-
-.tables-fields-container {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-
-    overflow: auto;
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
-  
-
-    
-}
-
-
-
-.table-field {
-    position: relative; /* Ensure position is set for z-index to take effect */
-
-    width: 80%;
-
-    border-radius: 10px;
-
-    background-color: rgba(0, 255, 0, 0.2);
-    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
-
-    color: rgba(255, 255, 255, 0.8);
-
-    margin-top: -40px;
-    margin-bottom: -40px;
-    
-    transition: transform 0.3s ease-in-out; 
-}
-.table-field:hover {
-    transform: translateY(-37px);
-}
-
-
-.table-field-title-container {
-    background-color: rgba(0, 255, 0, 0.1);
-    background-color: black;
-    color: white;
-    letter-spacing: 15px; 
-    word-spacing: 10px; 
-    font-size: 15px;
-
-
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 40px;
-
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.table-field-title {
-    margin-left: 10px;
-}
-
-.table-field-content {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-
-    /*border-left: 2px solid rgba(255, 255, 255, 0.5);
-    border-right: 2px solid rgba(255, 255, 255, 0.5);*/
-    
-    height: 100px;
-
-
-
-}
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Locations_example.css */
-body {
-    background-color: #333;
-    color: #ddd;
-  }
-
-  
-
-
-
-
 
 
 

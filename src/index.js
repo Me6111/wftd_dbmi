@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux'; 
 import store from './store'; 
 import './index.css';
-import Portal from './apps/portal/portal';
+// import Portal from './apps/portal/portal';
 import DBMI from './apps/dbmi/dbmi';
 
 import reportWebVitals from './reportWebVitals';
@@ -20,8 +20,7 @@ root.render(
     <Provider store={store}> {/* Wrap your app with Provider */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Portal />} />
-          <Route path="/dbmi" element={<DBMI />} /> 
+          <Route path="/" element={<DBMI />} />
 
         </Routes>
       </BrowserRouter>

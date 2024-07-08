@@ -5,6 +5,105 @@ C:\Users\user\Desktop\projects\wftd_locations\wftd_locations\src\apps\Locations_
 */
 
 
+
+
+
+
+
+
+
+
+
+
+
+.tables-fields-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  overflow: auto;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+
+
+  
+}
+
+
+
+.table-field {
+  position: relative; /* Ensure position is set for z-index to take effect */
+
+  width: 80%;
+
+  border-radius: 10px;
+
+  background-color: rgba(0, 255, 0, 0.2);
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
+
+  color: rgba(255, 255, 255, 0.8);
+
+  margin-top: -40px;
+  margin-bottom: -40px;
+  
+  transition: transform 0.3s ease-in-out; 
+}
+.table-field:hover {
+  transform: translateY(-37px);
+}
+
+
+.table-field-title-container {
+  background-color: rgba(0, 255, 0, 0.1);
+  background-color: black;
+  color: white;
+  letter-spacing: 15px; 
+  word-spacing: 10px; 
+  font-size: 15px;
+
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 40px;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.table-field-title {
+  margin-left: 10px;
+}
+
+.table-field-content {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+
+  /*border-left: 2px solid rgba(255, 255, 255, 0.5);
+  border-right: 2px solid rgba(255, 255, 255, 0.5);*/
+  
+  height: 100px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
 .table_container {
     width: 70%;
     height: 70%;
