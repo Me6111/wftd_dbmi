@@ -72,13 +72,6 @@ html {
     font-size: 3vw; 
 }
 
-@media screen and (min-width: 750px) {
-    .Locations-app-title {
-        letter-spacing: 15px; /*  original letter spacing for larger screens */
-        word-spacing: 10px; /*  original word spacing for larger screens */
-        font-size: 15px; /*  original font size for larger screens */
-    }
-}
 
 
 

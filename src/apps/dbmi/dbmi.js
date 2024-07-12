@@ -31,24 +31,27 @@ const DBMI = () => {
   return (
     <>
       <BackgroundContainer />
-      <NavBar />
-      <MainMenu />
+
+
+      <div id="screen-content-container">
+        <NavBar />
 
 
 
 
 
 
-      <div className="AppContainer">
+        <div className="AppContainer">
 
 
-        <div className="Locations-app-container">
-          <div className="Locations-app-container-content">
-            {/* Pass transformed headers and rows as props, along with the updateHeader function */}
-            <Table headers={headers} rows={rows} onUpdateHeaders={updateHeader} />
+          <div className="Locations-app-container">
+            <div className="Locations-app-container-content">
+              <Table headers={headers} rows={rows} onUpdateHeaders={updateHeader} />
+            </div>
           </div>
-        </div>
 
+
+        </div>
 
       </div>
     </>

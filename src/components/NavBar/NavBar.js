@@ -1,7 +1,6 @@
 import './NavBar.css'; // Import the CSS file
-import logo from './logo.jpg'; // Adjust the path if necessary
 import MainMenuButton from '../MainMenuButton/MainMenuButton'; // Import the MainMenu component
-
+import LogoContainer from '../LogoContainer/LogoContainer'
 
 const NavBar = () => {
 
@@ -9,9 +8,7 @@ const NavBar = () => {
     <>
       <div className="nav-bar">
 
-        <div className="icon-container" id="logo-icon-container">
-          <img src={logo} alt="Logo" />
-        </div>
+        <LogoContainer />
 
         <MainMenuButton />
 
