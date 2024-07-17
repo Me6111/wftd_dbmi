@@ -1,6 +1,5 @@
 // C:\Users\user\Desktop\projects\wftd_dbmi\src\apps/dbmi/dbmi.js
 
-import React, { useState } from 'react';
 
 import './dbmi.css';
 import './table.css';
