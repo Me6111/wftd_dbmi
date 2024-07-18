@@ -1,40 +1,25 @@
+
 // Table.js
 
+
 import React from 'react';
+import { handleColumnHeaderHover, resetColumnHover, handleRowHover, resetRowHoverStyle } from './HoverBehavior'; // Adjust the path as necessary
 import { handleClickOnColumnHeader } from './clickCell';
-
 const Table = ({ data }) => {
-  const [editingValues, setEditingValues] = React.useState({});
-
-  const handleEditValueChange = (columnKey, isEditing) => {
-    setEditingValues(prevState => ({
-      ...prevState,
-      [columnKey]: isEditing,
-    }));
-  };
-
-  const onClose = (event) => {
-    const inputElement = event.target;
-    const parent = inputElement.parentNode;
-    parent.innerHTML = inputElement.value; // Restore the original text
-    setEditingValues(prevState => ({
-      ...prevState,
-      [parent.id]: false, // Ensure the column is marked as not editing
-    }));
-  };
-
   const renderRows = (key, values) => {
     return values.map((value, index) => {
-      const rowId = index;
+      const rowId = index; // This generates the ID for the row
+
+      // For idxRow, we want the cell to display the same value as the row's ID
       const cellContent = key === 'idx' ? rowId : value;
 
       return (
         <div
           className={key === 'idx' ? 'idxRow' : 'row'}
-          onClick={(event) => handleClickOnColumnHeader(handleEditValueChange, key, onClose)(event)}
-
           key={rowId}
-          id={rowId} // Use id to identify columns in onClose
+          id={rowId}
+          onMouseEnter={handleRowHover} // Applied to both 'row' and 'idxRow'
+          onMouseLeave={resetRowHoverStyle} // Applied to both 'row' and 'idxRow'
         >
           <div className={key === 'idx' ? 'idxCell' : 'cell'}>{cellContent}</div>
         </div>
@@ -49,7 +34,9 @@ const Table = ({ data }) => {
           <div className="column">
             <div
               className={key === 'idx' ? 'idxHeader' : 'columnHeader'}
-              onClick={(event) => handleClickOnColumnHeader(handleEditValueChange, key, onClose)(event)}
+              // Only apply hover handlers if the class is 'columnHeader' (excluding 'idxHeader')
+              onMouseEnter={key === 'idx' ? null : handleColumnHeaderHover}
+              onMouseLeave={key === 'idx' ? null : resetColumnHover}
             >
               <div className={key === 'idx' ? 'idxCell' : 'cell'}>{key}</div>
             </div>
