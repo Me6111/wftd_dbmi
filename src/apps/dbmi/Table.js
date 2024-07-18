@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { handleColumnHeaderHover, resetColumnHover, handleRowHover, resetRowHoverStyle } from './HoverBehavior'; // Adjust the path as necessary
-import { handleClickOnColumnHeader } from './clickCell';
 const Table = ({ data }) => {
   const renderRows = (key, values) => {
     return values.map((value, index) => {

@@ -31,8 +31,8 @@ html {
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start; /* Changed from center to flex-start to ensure the first child is at the top */
 
 }
 
@@ -88,7 +88,7 @@ html {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around; /* Use space-around for equal space top and bottom */
+    justify-content: center;
     align-items: center;
 
 

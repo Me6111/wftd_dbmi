@@ -23,16 +23,15 @@ export const resetColumnHover = () => {
 
 export const handleRowHover = (event) => {
     const hoveredRowId = event.currentTarget.id;
-    // Select elements based on ID prefix, not class
-    const rowsWithSameId = document.querySelectorAll(`[id^="${hoveredRowId}"]`);
+    // Correctly select elements based on exact ID match
+    const rowsWithExactId = document.querySelectorAll(`[id="${hoveredRowId}"]`);
 
-    rowsWithSameId.forEach((row) => {
+    rowsWithExactId.forEach((row) => {
       row.style.borderTop = '1px solid white';
       row.style.borderBottom = '1px solid white';
       row.style.color = 'white';
     });
 };
-
 export const resetRowHoverStyle = () => {
     // Reset styles for all elements, not just '.row'
     const rows = document.querySelectorAll('*');
