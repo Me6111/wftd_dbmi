@@ -9,7 +9,7 @@ export const handleColumnHeaderHover = (event) => {
     }
 };
 
-export const resetHoverStyle = () => {
+export const resetColumnHover = () => {
     const columns = document.querySelectorAll('.column');
     columns.forEach(column => {
         column.style.borderLeft = '';
@@ -17,22 +17,28 @@ export const resetHoverStyle = () => {
         column.style.color = 'rgba(255, 255, 255, 0.6)'; // Ensure color is reset to avoid conflicts
     });
 };
-  export const handleRowHover = (event) => {
+
+
+
+
+export const handleRowHover = (event) => {
     const hoveredRowId = event.currentTarget.id;
-    const rowsWithSameId = document.querySelectorAll(`.row[id^="${hoveredRowId}"]`);
-  
+    // Select elements based on ID prefix, not class
+    const rowsWithSameId = document.querySelectorAll(`[id^="${hoveredRowId}"]`);
+
     rowsWithSameId.forEach((row) => {
       row.style.borderTop = '1px solid white';
       row.style.borderBottom = '1px solid white';
       row.style.color = 'white';
     });
-  };
-  
-  export const resetRowHoverStyle = () => {
-    const rows = document.querySelectorAll('.row');
+};
+
+export const resetRowHoverStyle = () => {
+    // Reset styles for all elements, not just '.row'
+    const rows = document.querySelectorAll('*');
     rows.forEach(row => {
       row.style.borderTop = '';
       row.style.borderBottom = '';
       row.style.color = '';
     });
-  };
+};

@@ -1,6 +1,3 @@
-// C:\Users\user\Desktop\projects\wftd_dbmi\src\apps/dbmi/dbmi.js
-
-
 import './dbmi.css';
 import './table.css';
 
@@ -16,7 +13,6 @@ const DBMI = () => {
       "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana",
       "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada",
       "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros",
-
     ],
     State: [
       "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
@@ -33,7 +29,27 @@ const DBMI = () => {
       "Sacramento", "Atlanta", "Kansas City", "Mesa", "Virginia Beach"
     ]
   };
+
+  function addIdxKey(data) {
+    // Calculate the maximum length among the arrays
+    const maxLength = Math.max(
+      ...Object.values(data).map(arr => arr.length)
+    );
   
+    // Create an array of numbers from 1 to maxLength
+    const idxArray = Array.from({length: maxLength}, (_, i) => i + 1);
+  
+    // Add the new key-value pair to the data object
+    data.idx = idxArray;
+  
+    return data;
+  }
+
+  // Rearrange the data object to move idx to the first position
+  const rearrangedData = {
+    idx: addIdxKey(data),
+    ...data
+  };
 
   return (
     <>
@@ -43,7 +59,7 @@ const DBMI = () => {
         <div className="AppContainer">
           <div className="Locations-app-container">
             <div className="Locations-app-container-content">
-              <Table data={data} />
+              <Table data={rearrangedData} /> {/* Pass the rearranged data here */}
             </div>
           </div>
         </div>
