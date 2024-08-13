@@ -1,5 +1,12 @@
 /* styles.css */
 
+.ConfirmField_UpdateCell-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
 .ConfirmField_UpdateCell {
     position: fixed;
     top: 0;
@@ -104,3 +111,33 @@
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.InputField_UpdateCell {
+    background-color: inherit;
+    color: inherit;
+    font-size: inherit;
+
+    position: inherit;
+    width: inherit;
+    height: inherit;
+    border: inherit; 
+
+}
+
+

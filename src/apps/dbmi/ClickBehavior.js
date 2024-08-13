@@ -1,14 +1,18 @@
 
+
+
 // C:\Users\user\Desktop\projects\wftd_dbmi\src\apps\dbmi\ClickBehavior.js
 
 
-import { createConfirmFieldUpdateCell } from './ConfirmField_UpdateCell'; // Adjust the path as necessary
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ConfirmField_UpdateCell from './ConfirmField_UpdateCell'; 
 
 export const handleCellClick = (event) => {
     const target = event.target;
     const inputField = document.createElement('input');
     inputField.type = 'text';
-    inputField.className = 'InputField_UpdateCell'; // Class added here
+    inputField.className = 'InputField_UpdateCell'; 
     inputField.value = target.innerText;
     inputField.style.position = 'inherit';
     inputField.style.width = 'inherit';
@@ -28,22 +32,32 @@ export const handleCellClick = (event) => {
     const inputFieldExists = document.querySelector('.InputField_UpdateCell') !== null;
 
     document.addEventListener('click', (outerClickEvent) => {
-        // Check if there's any element with the class "ConfirmField_UpdateCell" on the page
-        const confirmFieldExists = document.querySelector('.ConfirmField_UpdateCell') !== null;
+        // Check if there are no elements with the class "ConfirmField_UpdateCell-container"
+        const confirmFieldUpdateCellContainersExist = document.querySelectorAll('.ConfirmField_UpdateCell-container').length > 0;
+        if (confirmFieldUpdateCellContainersExist) {
+            return; // Exit early if such elements exist
+        }
 
-        // Prevent execution if the ConfirmField_UpdateCell exists
-        if (!confirmFieldExists && inputFieldExists && outerClickEvent.target !== inputField && outerClickEvent.target !== target) {
+        // Only execute the following block if there's an input field and the click is outside of it
+        if (inputFieldExists && outerClickEvent.target !== inputField) {
             // Remove the input field from the target element
             target.removeChild(target.firstChild);
             target.innerText = inputField.value; 
 
             // Check if the input field value is different from the original value
             if (inputField.value !== originalValue) {
-                // Use the imported function to create the ConfirmField_UpdateCell div
-                const ConfirmField_UpdateCell = createConfirmFieldUpdateCell(originalValue, inputField.value);
+                // Find the .tableContainer element
+                const tableContainer = document.querySelector('.tableContainer');
 
-                // Append the ConfirmField_UpdateCell to the body
-                document.body.appendChild(ConfirmField_UpdateCell);
+                // Create a new div to hold the ConfirmField_UpdateCell component
+                const confirmFieldDiv = document.createElement('div');
+                confirmFieldDiv.className = 'ConfirmField_UpdateCell-container'; // Add a unique class for styling
+
+                // Append the ConfirmField_UpdateCell component to the newly created div
+                ReactDOM.render(<ConfirmField_UpdateCell originalValue={originalValue} inputValue={inputField.value} />, confirmFieldDiv);
+
+                // Append the div containing the component to the .tableContainer
+                tableContainer.appendChild(confirmFieldDiv);
             }
         }
     });
