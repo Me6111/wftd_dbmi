@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { handleColumnHeaderHover, resetColumnHover, handleRowHover, resetRowHoverStyle } from './HoverBehavior';
-import InputField_UpdateCell from './InputField_UpdateCell';
+import InputFieldUpdateCell from './InputField_UpdateCell'; // Corrected import
 import './ConfirmField_UpdateCell.css';
 
 const Table = ({ data }) => {
@@ -17,29 +17,31 @@ const Table = ({ data }) => {
       const cellContent = key === 'idx' ? rowId : value;
 
       return (
-        <div 
-          className={key === 'idx' ? 'idxRow' : 'row'} 
-          key={rowId} 
-          id={rowId} 
-          onMouseEnter={handleRowHover} 
+        <div
+          className={key === 'idx' ? 'idxRow' : 'row'}
+          key={rowId}
+          id={rowId}
+          onMouseEnter={handleRowHover}
           onMouseLeave={resetRowHoverStyle}
         >
-          <div 
-            className={key === 'idx' ? 'idxCell' : 'cell'} 
+          <div
+            className={key === 'idx' ? 'idxCell' : 'cell'}
             id={`columnHeader-${key}-${rowId}`}
             onClick={() => {
               const element = document.getElementById(`columnHeader-${key}-${rowId}`);
               if (!element.querySelector('input')) {
-                setIsXComponentVisible(prev => ({
+                setIsXComponentVisible((prev) => ({
                   ...prev,
-                  [`columnHeader-${key}-${rowId}`]: true
+                  [`columnHeader-${key}-${rowId}`]: true,
                 }));
                 element.textContent = '';
               }
             }}
           >
             {cellContent}
-            {isXComponentVisible[`columnHeader-${key}-${rowId}`] && <InputField_UpdateCell value={cellContent} />}
+            {isXComponentVisible[`columnHeader-${key}-${rowId}`] && (
+              <InputFieldUpdateCell value={cellContent} /> // Corrected component name
+            )}
           </div>
         </div>
       );
@@ -51,9 +53,9 @@ const Table = ({ data }) => {
       {Object.entries(data).map(([key, values]) => (
         <div className="scrollableColumn">
           <div className="column">
-            <div 
-              className={key === 'idx' ? 'idxHeader' : 'columnHeader'} 
-              onMouseEnter={key !== 'idx' ? handleColumnHeaderHover : null} 
+            <div
+              className={key === 'idx' ? 'idxHeader' : 'columnHeader'}
+              onMouseEnter={key !== 'idx' ? handleColumnHeaderHover : null}
               onMouseLeave={key !== 'idx' ? resetColumnHover : null}
             >
               <div className={key === 'idx' ? 'idxCell' : 'cell'} id={`columnHeader-${key}`}>
